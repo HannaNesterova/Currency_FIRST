@@ -11,8 +11,9 @@ import '@testing-library/jest-dom/extend-expect';
         const amounts = [100, 50, 200, 350];
         for(let amount of amounts){
             render(<ResultBox from="PLN" to="USD" amount={amount} />);
-            const output = screen.getByTestId('output');
+            const output = screen.getAllByTestId('resultDiv');
             expect(output).toHaveTextContent('PLN 100.00 = $28.57');
+            cleanup();
         }
     });
 });
